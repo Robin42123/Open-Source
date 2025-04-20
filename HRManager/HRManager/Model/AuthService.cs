@@ -26,5 +26,12 @@ namespace HRManager.Model
 			return username == _config["AdminCredentials:Username"] &&
 				   password == _config["AdminCredentials:Password"];
 		}
+		public bool Authenticate(string username, string password)
+		{
+			var storedUsername = _config["AdminCredentials:Username"];
+			var storedPassword = _config["AdminCredentials:Password"];
+
+			return username == storedUsername && password == storedPassword;
+		}
 	}
 }
